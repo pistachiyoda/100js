@@ -1,1 +1,5 @@
-console.log('helllo world')
+console.log('helllo world');
+
+for (let i = 0; i < 10; i++) {
+  console.log(i);
+}
