@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import TestimonialCard from './components/TestimonialCard.vue';
-import { ref } from 'vue';
+import { onUnmounted, ref } from 'vue';
 
 const currentIndex = ref(0);
-setInterval(() => {
+const intervalId = setInterval(() => {
   if (currentIndex.value === testimonials.length - 1) {
     currentIndex.value = 0;
   } else {
@@ -11,7 +11,17 @@ setInterval(() => {
   }
 }, 2000);
 
-const testimonials = [
+onUnmounted(() => {
+  clearInterval(intervalId);
+});
+
+interface Testimonial {
+  id: number;
+  img: string;
+  message: string;
+}
+
+const testimonials: Testimonial[] = [
   {
     id: 1,
     img: '/review_woman_star5.png',
@@ -25,7 +35,7 @@ const testimonials = [
   {
     id: 3,
     img: '/review_woman_star3.png',
-    message: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    message: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
   }
 ]
 
@@ -33,8 +43,12 @@ const testimonials = [
 </script>
 
 <template>
-  <header></header>
-  <main>
-    <TestimonialCard :img="testimonials[currentIndex].img" :message="testimonials[currentIndex].message" />
+  <main class="h-screen flex flex-col justify-center items-center">
+    <template v-if="testimonials.length">
+      <TestimonialCard :img="testimonials[currentIndex].img" :message="testimonials[currentIndex].message" />
+    </template>
+    <template v-else>
+      <p>Testimonials not found</p>
+    </template>
   </main>
 </template>
