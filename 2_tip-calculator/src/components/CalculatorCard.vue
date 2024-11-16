@@ -2,12 +2,13 @@
 import { ref } from 'vue';
 import FormInputField from './FormInputField.vue';
 
-const billAmount = ref('');
-const tipPercentage = ref('');
+const billAmount = ref(0);
+const tipPercentage = ref(0);
 const total = ref(0);
 const calcTotal = () => {
-    const bill = parseFloat(billAmount.value);
-    const tip = parseFloat(tipPercentage.value) / 100;
+    const bill = billAmount.value;
+    const tip = tipPercentage.value / 100;
+    console.log(bill, tip);
     total.value = bill + (bill * tip);
 };
 </script>
