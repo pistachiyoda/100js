@@ -3,7 +3,7 @@ import CalculatorCard from './components/CalculatorCard.vue';
 </script>
 
 <template>
-  <main>
+  <main class="h-screen flex flex-col justify-center items-center">
     <CalculatorCard />
   </main>
 </template>
