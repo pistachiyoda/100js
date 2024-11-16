@@ -14,6 +14,6 @@ const update = (event: Event) => {
 };
 </script>
 <template>
-    <label for="id">{{ label }}</label>
-    <input type="number" id="id" :value="modelValue" @input="update" min="0" aria-label="label" />
+    <label :for="id">{{ label }}</label>
+    <input type="number" :id="id" :value="modelValue" @input="update" min="0" aria-label="label" />
 </template>
