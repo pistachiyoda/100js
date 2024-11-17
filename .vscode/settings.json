@@ -9,5 +9,6 @@
     "source.fixAll": "explicit"
   },
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "Vue.volar"
+  "editor.defaultFormatter": "Vue.volar",
+  "editor.wordWrap": "on"
 }
