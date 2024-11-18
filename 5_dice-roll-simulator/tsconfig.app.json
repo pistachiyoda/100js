@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "../5_dice-roll-simulator/src/type.ts"],
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
     "composite": true,
