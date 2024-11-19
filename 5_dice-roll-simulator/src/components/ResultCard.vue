@@ -5,6 +5,7 @@ defineProps<{
     id: number;
     dice: Dice;
 }>();
+
 </script>
 <template>
     <div class="bg-gray-200 w-96 flex items-center justify-between px-5 shadow-lg rounded-lg">

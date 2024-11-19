@@ -10,8 +10,7 @@ const rollDice = () => {
     isRolling.value = true;
     setTimeout(() => {
         isRolling.value = false;
-        diceHistory.value.push(dices[Math.floor(Math.random() * 5)]);
-        console.log(diceHistory)
+        diceHistory.value.push(dices[Math.floor(Math.random() * 6)]);
     }, 1500)
 }
 </script>
@@ -30,7 +29,7 @@ const rollDice = () => {
         </button>
     </div>
     <div class="flex flex-col gap-4 items-center">
-        <ResultCard v-for="(dice, index) in diceHistory" :key="index" :id="index" :dice="dice">
+        <ResultCard v-for="(dice, index) in diceHistory" :key="`${index}=${dice}`" :id="index" :dice="dice">
         </ResultCard>
     </div>
 </template>
