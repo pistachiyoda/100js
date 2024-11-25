@@ -42,18 +42,21 @@ onUnmounted(() => clearInterval(intervalId.value))
 </script>
 
 <template>
-    <header>
-        <h1>Pomodoro Timer</h1>
-    </header>
-    <div v-if="isEnd">終わった</div>
-    <div class="flex">
-        <div>{{ minutesCnt }}</div>
-        <span>:</span>
-        <div>{{ secondsCnt }}</div>
-    </div>
-    <div class="flex gap-2">
-        <button @click="start">START</button>
-        <button @click="stop">STOP</button>
-        <button @click="reset">RESET</button>
+    <div class="flex flex-col gap-12 items-center">
+        <header>
+            <h1 class="font-semibold text-5xl mt-8">Pomodoro Timer</h1>
+        </header>
+        <div v-if="isEnd">終わった</div>
+        <div class="flex font-semibold text-8xl">
+            <div>{{ minutesCnt }}</div>
+            <span>:</span>
+            <div>{{ secondsCnt }}</div>
+        </div>
+        <div class="flex gap-6 text-white text-xl">
+            <button @click="start"
+                :class="[isCounting ? 'bg-green-300' : 'bg-green-600', 'px-5', 'py-3', 'rounded-sm']">START</button>
+            <button @click="stop" class="bg-red-500  px-5 py-3 rounded-sm">STOP</button>
+            <button @click="reset" class="bg-gray-500  px-5 py-3 rounded-sm">RESET</button>
+        </div>
     </div>
 </template>
