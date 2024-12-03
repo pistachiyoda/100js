@@ -17,9 +17,15 @@ export default [
   ...vueTsEslintConfig({
     rules: {
       '@typescript-eslint/explicit-function-return-type': 'warn',
-      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-explicit-any': 'error',
       '@typescript-eslint/no-unused-vars': 'error',
-      '@typescript-eslint/prefer-as-const': 'error'
+      '@typescript-eslint/prefer-as-const': 'error',
+      'vue/script-setup-uses-vars': 'error',
+      'vue/no-deprecated-slot-attribute': 'error',
+      'vue/no-deprecated-v-on-native-modifier': 'error',
+      'vue/no-deprecated-v-bind-sync': 'error',
+      'vue/require-explicit-emits': 'error',
+      'vue/component-api-style': ['error', ['script-setup', 'composition']]
     },
   }),
   skipFormatting,
